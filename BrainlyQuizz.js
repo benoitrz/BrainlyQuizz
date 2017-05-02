@@ -85,17 +85,19 @@ var Quizz = {
     },
 
     noSelectionMade: function(){
-    	var feedback = "<div class='sg-flash'>"+
-	  	"<div class='sg-flash__message sg-flash__message--error'>"+
-	    "<div class='sg-text sg-text--emphasised sg-text--small sg-text--light'>"+
-	    "You have to make a choice!"+
-	   	"</div>"+
-	  	"</div>"+
-		"</div>";
-   		var div = document.createElement('div');
-     	div.id = 'error';
-     	document.body.insertBefore(div, document.body.firstChild);
-     	document.getElementById("error").innerHTML = feedback;
+    	if(!document.getElementById("error")){
+	    	var feedback = "<div class='sg-flash'>"+
+		  	"<div class='sg-flash__message sg-flash__message--error'>"+
+		    "<div class='sg-text sg-text--emphasised sg-text--small sg-text--light'>"+
+		    "You have to make a choice!"+
+		   	"</div>"+
+		  	"</div>"+
+			"</div>";
+	   		var div = document.createElement('div');
+	     	div.id = 'error';
+	     	document.body.insertBefore(div, document.body.firstChild);
+	     	document.getElementById("error").innerHTML = feedback;
+     	}
     },
 
     showStage: function(){
