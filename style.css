@@ -1,0 +1,15 @@
+body {
+	background-color: #57b2f8;
+	width: 90%;
+	margin: 0 auto;
+}
+#start, #next { margin-top: 1em; }
+
+@media (min-width: 600px) {
+	body {
+		margin-top: 5%; 
+		margin-left: 15%;
+		width: 50%;
+	}
+	#timer, .stage { float: right; }
+}
