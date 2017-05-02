@@ -41,8 +41,8 @@ var Quizz = {
 			for (var j = 0; j < datas[i]['answers'].length; j++){
 				possibilities.push(datas[i]['answers'][j]['answer']);
 				if (datas[i]['answers'][j]['correct'] == true) this.correct.push(j);
-				this.answers.push(possibilities);		
 			}
+			this.answers.push(possibilities);
 		}
     },
 
@@ -60,7 +60,7 @@ var Quizz = {
 	nextQuestion: function(){
     	if (this.stage < this.questions.length){
 		     var form2 = "<h2 class='sg-header-primary sg-header-primary--small'>"+this.questions[this.stage]+"</h2><br>";
-		     for (var i = 0; i <= 3; i++){
+		     for (var i = 0; i < this.answers[0].length; i++){
 		     	form2 += "<div class='sg-label sg-label--secondary'>"+
 		            "<div class='sg-label__icon'>"+
 		                "<div class='sg-radio'>"+
