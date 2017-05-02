@@ -105,6 +105,11 @@ var Quizz = {
       	"<div class='sg-text sg-text--emphasised sg-text--mint'>"+ this.stage+" / "+this.questions.length+"</div>"+
     	"</div>";
     	document.getElementById("stage_info").innerHTML = stage_info;
+    },
+	
+    updateScore: function(choosen){
+    	if (document.getElementById("error")) document.getElementById("error").parentNode.removeChild(document.getElementById("error"));
+	if (choosen.value == this.correct[this.stage]){this.score += 1;}
     }
 }
 
@@ -125,13 +130,20 @@ document.getElementById("start").addEventListener("click", function() {
 		if (Quizz.stage < Quizz.questions.length-1){
 			var choosen = document.getElementById("main").querySelector('input[name = "answer"]:checked');
 			if (choosen){
-				if (document.getElementById("error")) document.getElementById("error").parentNode.removeChild(document.getElementById("error"));
-				if (choosen.value == Quizz.correct[Quizz.stage]){Quizz.score += 1;}
+				Quizz.updateScore(choosen);
 				Quizz.stage +=1;
 				Quizz.showStage();
 				Quizz.nextQuestion();
-			} else {Quizz.noSelectionMade();}
-		} else { Quizz.stage +=1; Quizz.showStage(); Quizz.stopTimer(); }
+			} else Quizz.noSelectionMade();
+		} else { 
+			var choosen = document.getElementById("main").querySelector('input[name = "answer"]:checked');
+			if (choosen){
+				Quizz.updateScore(choosen);
+				Quizz.stage +=1; 
+				Quizz.showStage(); 
+				Quizz.stopTimer(); 
+			} else Quizz.noSelectionMade();
+		}
 	}, false);
 	 } );
 }, false);
